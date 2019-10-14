@@ -1,7 +1,7 @@
 # Program to read, write and open files
 # Author:: Elina Eickstaedt
 
-puts("Geben Sie den Dateipfad fuer die Datei ein die Sie bearbeiten moechten!")
+puts("Please enter the filepath to the file you would like to manipulate")
 input_file = gets.chomp
 
 #2.1 Read access on the file, putting it out on the command line.
