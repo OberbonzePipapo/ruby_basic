@@ -1,4 +1,4 @@
-# Program to read, write and open files
+# Program to read, write,open and manipulate files
 # Author:: Elina Eickstaedt
 
 puts("Please enter the filepath to the file you would like to manipulate")
