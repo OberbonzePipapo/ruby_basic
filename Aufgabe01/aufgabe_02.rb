@@ -30,7 +30,7 @@ end
 
 File.open("data/output.txt", 'w') do |file|
   words.each do |word|
-    file.puts(word.reverse!)
+    file.puts(word.reverse)
   end
 end
 
