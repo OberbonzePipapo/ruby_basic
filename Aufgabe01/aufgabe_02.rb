@@ -27,10 +27,13 @@ end
 #puts(words)
 
 # 2.3 Reversed all words and saved it in a new output file
+reversed_words= []
 
 File.open("data/output.txt", 'w') do |file|
   words.each do |word|
-    file.puts(word.reverse)
+    word_reversed = word.reverse
+    reversed_words << word_reversed
+    file.puts(word_reversed)
   end
 end
 
@@ -43,10 +46,16 @@ end
 #Hash that counts words
 words_counter = Hash.new(0)
 
-# Count words
+# Count for words in the right direction
 words.each do |word|
   words_counter[word] += 1
 end
+
+# Count for reversed words
+reversed_words.each do |word|
+  words_counter[word] += 1
+end
+
 
 #print out sorted
 words_counter.sort_by{ |_k, v| v }.each { |word, count| puts("#{word} kommt #{count} vor") }
