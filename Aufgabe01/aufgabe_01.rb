@@ -3,7 +3,7 @@
 
 puts "Hi, welcome to the first Ruby assignment! Lets mix up some strings, please enter a string here!"
 
-input = gets.chomp
+input = gets.chomp.force_encoding('UTF-8')
 #reversing the entered word
 puts(input.reverse)
 

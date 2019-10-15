@@ -16,7 +16,7 @@ File.open(input_file, 'r:UTF-8') do |file|
   end
 end
 
-#2.2 Created new array and saved all word seperated from each other in downcases, and delted non wordsigns
+#2.2 Created new array and saved all word seperated from each other in downcases, and deleted non wordsigns
 words = []
 
 lines.each do |line|
