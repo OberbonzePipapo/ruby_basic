@@ -1,4 +1,4 @@
-#Description
+#Methods to implement the collatz conejecture, check if it is one and return the index
 #Author:: Elina Eickstaedt
 
 #Method which gets a start_value and calculates what the next value would be according to the Collatz conjecture (explenation here => https://en.wikipedia.org/wiki/Collatz_conjecture)
