@@ -1,7 +1,7 @@
-#Methods to implement the collatz conejecture, check if it is one and return the index
+#Methods to implement the collatz conejecture, checks if it is one and return the index
 #Author:: Elina Eickstaedt
 
-#Method which gets a start_value and calculates what the next value would be according to the Collatz conjecture (explenation here => https://en.wikipedia.org/wiki/Collatz_conjecture)
+#Method which gets a start_value and calculates what the next value would be according to the Collatz conjecture (explanation here => https://en.wikipedia.org/wiki/Collatz_conjecture)
 def collatz(current_value)
   if current_value.even?
     current_value / 2
@@ -17,9 +17,7 @@ def is_collatz_conjecture(start_value)
   while new_conjecture.last(4) != [1, 4, 2, 1]
     new_conjecture << collatz(new_conjecture.last)
   end
-
-  puts("The start value was #{start_value}, this conjecture is a collatz conjecture and the index is #{new_conjecture.length - 4}")
-  puts(new_conjecture)
+  return_values = [start_value, new_conjecture.length - 4]
 end
 
-is_collatz_conjecture(1345)
+puts(is_collatz_conjecture(1345))
