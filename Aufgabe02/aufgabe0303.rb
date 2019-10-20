@@ -18,6 +18,8 @@ def aprox_one
   current_value = 0.0
   #variable to save the difference of one an the current value, also break argument
   div_conv = 1.0
+
+  #chwe
   while div_conv > Float::EPSILON
     current_value += ((k.to_f) - 1) / ((faculty(k)).to_f)
     div_conv = (1.0 - current_value).abs

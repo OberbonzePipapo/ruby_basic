@@ -10,7 +10,7 @@ def russianfarme_multi(a,b)
     b = b * 2
   end
   #implent selection of b were a is even
-  step_hash.each {|k, v| if !k.even?
+  step_hash.each {|k, v| if k.odd?
                            result = result + v
                          end}
   result
