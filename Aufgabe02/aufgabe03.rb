@@ -11,13 +11,15 @@ def collatz(current_value)
 end
 
 #Method which checks if the conjecture is a collatz conjecture and return the start_value and the index
-def is_collatz_conjecture(start_value)
+def is_collatz_conjecture(start_value, n)
   new_conjecture = [start_value]
+  i = 0
 
-  while new_conjecture.last(4) != [1, 4, 2, 1]
+  while (new_conjecture.last(4) != [1, 4, 2, 1]) and (i <= n)
     new_conjecture << collatz(new_conjecture.last)
+    i += 1
   end
-  return_values = [start_value, new_conjecture.length - 4]
+  [start_value, new_conjecture.length - 4]
 end
 
-puts(is_collatz_conjecture(1345))
+puts(is_collatz_conjecture(1345, 120))
