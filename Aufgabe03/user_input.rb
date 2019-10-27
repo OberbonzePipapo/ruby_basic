@@ -18,7 +18,7 @@ class UserInput
     if input.is_a?(NilClass) || (input.strip).upcase.eql?("E")
       puts("Please restart and enter something valid")
     else
-      user_input = /^(?<value>[0-9.]+) ?(?<enteredUnit>[[:alpha:]]+)?(?:to)?(?<targetUnit>[[:alpha:]]+)?/.match(input.strip)
+      user_input = /^(?<value>[0-9.]+) ?(?<enteredUnit>[[:alpha:]]+)?(?:to)?(?<targetUnit>[[:alpha:]]+)?$/.match(input.strip)
       @enteredUnit = user_input["enteredUnit"]
       @enteredValue = user_input["value"]
       @targetUnit = user_input["targetUnit"]
