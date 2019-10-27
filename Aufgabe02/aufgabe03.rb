@@ -13,6 +13,7 @@ end
 #Method which checks if the conjecture is a collatz conjecture and return the start_value and the index
 def is_collatz_conjecture(start_value, n)
   new_conjecture = [start_value]
+  #index to check if n-steps are already reached
   i = 0
 
   while (new_conjecture.last(4) != [1, 4, 2, 1]) and (i <= n)

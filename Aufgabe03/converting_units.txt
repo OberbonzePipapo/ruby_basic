@@ -1,0 +1,37 @@
+LENGTH
+
+1 potrzebie = thickness of MAD #26
+.00000 p = 1 farshimmelt potrzebie (fp)
+1000 fp = 1 millipotrzebie (mp)
+10 mp = 1 centipotrzebie (cp)
+10 cp = 1 decipotrzebie (dp)
+10 dp = 1 potrzebie (p)
+10 p = 1 dekapotrzebie (Dp)
+10 Dp = 1 hectopotrzebie (Hp)
+10 Hp = 1 kilopotrzebie (Kp) 1000 Kp = 1 furshlugginer potrzebie (Fp)
+
+VOLUME
+
+1 cubic dekapotrzebie = 1 ngogn (n)
+.000001 n = 1 farshimmelt ngogn (fn)
+1000 fn = 1 millingogn (mn)
+10 mn = 1 centingogn (cn)
+10 cn = 1 decingogn (dn)
+10 dn = 1 ngogn (n)
+10 n = 1 dekangogn (Dn)
+10 Dn = 1 hectongogn (Hn)
+10 Hn = 1 kilongogn (Kn)
+1000 Kn = 1 furshlugginer ngogn (Fn)
+
+MASS
+
+1 ngogn of halavah* = 1 blintz (b)
+.000001 b = 1 farshimmelt blintz (b) [sic]
+1000 fb = 1 milliblintz (mb)
+10 mb = 1 centiblintz (cb)
+10 cb = 1 deciblintz (db)
+10 db = 1 blintz (b)
+10 b = 1 dekablintz (Db)
+10 Db = 1 hectoblintz (Hb)
+10 Hb = 1 kiloblintz (Kb)
+1000 Kb = 1 furshlugginer blintz (Fb)
