@@ -20,6 +20,7 @@ def get_input
     entered_unit = user_input["enteredUnit"]
     entered_value = user_input["value"]
     target_unit = user_input["targetUnit"]
+    call_converter()
   end
 end
 
@@ -38,4 +39,4 @@ def call_converter
 end
 
 
-
+get_input()
