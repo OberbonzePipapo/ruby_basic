@@ -42,17 +42,3 @@ end
 
 # possible Testcase
 # assert(LengthUnit.new("C", 5).convet("F"), 41)
-#
-#
-# Hardcoded Userinput
-
-enteredUnit = "C"
-enteredValue = 5
-enteredTargetUnit = "F"
-unit = nil
-
-if TemperatureConversion.units.include?(enteredUnit)
-  unit = TemperatureConversion.new(enteredUnit, enteredValue)
-end
-
-puts unit.convert(enteredTargetUnit)

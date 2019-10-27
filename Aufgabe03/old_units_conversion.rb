@@ -42,16 +42,3 @@ end
 
 # Possible Testcase => Needs Adjustment
 # assert(LengthUnit.new("cm", 5).convert("mm"), 50)
-
-
-# Hardcoded Userinput
-enteredUnit = "cm"
-enteredValue = 5
-enteredTargetUnit = "mm"
-unit = nil
-
-if OldUnitsConversion.units.include?(enteredUnit)
-  unit = OldUnitsConversion.new(enteredUnit, enteredValue)
-end
-
-puts unit.convert(enteredTargetUnit)

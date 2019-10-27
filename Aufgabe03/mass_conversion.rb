@@ -52,16 +52,3 @@ end
 
 # possible test case
 # assert(LengthUnit.new("kg", 5).convert("lb"), 11,0231)
-#
-# Hardcoded Userinput
-
-enteredUnit = "kg"
-enteredValue = 5
-enteredTargetUnit = "lb"
-unit = nil
-
-if MassConversion.units.include?(enteredUnit)
-  unit = MassConversion.new(enteredUnit, enteredValue)
-end
-
-puts unit.convert(enteredTargetUnit)

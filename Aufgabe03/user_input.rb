@@ -1,34 +1,45 @@
 # Description
 # Author:: Elina Eickstaedt
+require_relative 'length_conversion.rb'
+require_relative 'mass_conversion.rb'
+require_relative 'temperature_conversion.rb'
+require_relative 'old_units_conversion.rb'
+
 class UserInput
   def initialize
     @enteredUnit = 0
     @enteredValue = 0
     @targetUnit = 0
   end
-
+  # Method to get user input and saves it in variables to convert and check later
   def get_input
     loop  do
-      puts("Please enter the value and the unit you want to convert from, in the format. To end this converting journey, please type E.")
+      puts("Please enter the value and the unit you want to convert from, in the format 2 cm to km. To end this converting journey, please type E.")
       input =  gets
-      break if input.is_a?(NilClass) || (input.strip).upcase.equal?("E")
-      user_input = /^(?<value>[0-9.]+) ?(?<enteredunit>[[:alpha:]]+)?$/.match(input.strip)
-      @enteredUnit = user_input["enteredunit"]
+      break if input.is_a?(NilClass) || (input.strip).upcase.eql?("E")
+      user_input = /^(?<value>[0-9.]+) ?(?<enteredUnit>[[:alpha:]]+)?(?:to)?(?<targetUnit>[[:alpha:]]+)?/.match(input.strip)
+      @enteredUnit = user_input["enteredUnit"]
       @enteredValue = user_input["value"]
-      puts("Now please enter the ")
+      @targetUnit = user_input["targetUnit"]
     rescue Interrupt
       break
     end
-    puts("Ok, lets stop this converting journey")
   end
 
   #private
   # method which calls the right unit converter from coversion class
-  #def call_converter
-  #  if LengthConversion.units.include?(enteredUnit)
-   #   unit = LengthConversion.new(enteredUnit, enteredValue)
-   # end
-  #end
+  def call_converter
+    if LengthConversion.units.include?(@enteredUnit) && LengthConversion.units.include?(@targetUnit)
+      unit = LengthConversion.new(enteredUnit, enteredValue)
+      puts unit.convert(@targetUnit)
+    elsif MassConversion.units.include?(@enteredUnit) && MassConversion.units.include?(@targetUnit)
+      unit = MassConversion.new(@enteredUnit, @enteredValue)
+      puts unit.convert(@targetUnit)
+    elsif TemperatureConversion.units.include?(@enteredUnit) && TemperatureConversion.units.include?(@targetUnit)
+      unit = MassConversion.new(@enteredUnit, @enteredValue)
+      puts unit.convert(@targetUnit)
+    end
+  end
 end
 
 
