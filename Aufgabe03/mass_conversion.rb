@@ -50,15 +50,18 @@ class MassConversion
   end
 end
 
-# assert(LengthUnit.new("cm", 5).convet("mm"), 50)
+# possible test case
+# assert(LengthUnit.new("kg", 5).convert("lb"), 11,0231)
+#
+# Hardcoded Userinput
 
-enteredUnit = "cm"
+enteredUnit = "kg"
 enteredValue = 5
-enteredTargetUnit = "mm"
+enteredTargetUnit = "lb"
 unit = nil
 
-if LengthConversion.units.include?(enteredUnit)
-  unit = LengthConversion.new(enteredUnit, enteredValue)
+if MassConversion.units.include?(enteredUnit)
+  unit = MassConversion.new(enteredUnit, enteredValue)
 end
 
 puts unit.convert(enteredTargetUnit)

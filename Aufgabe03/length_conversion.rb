@@ -60,7 +60,9 @@ class LengthConversion
   end
 end
 
+# possible Testcase
 # assert(LengthUnit.new("cm", 5).convet("mm"), 50)
+# Hardcoded Userinput
 
 enteredUnit = "cm"
 enteredValue = 5

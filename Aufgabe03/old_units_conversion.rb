@@ -39,15 +39,19 @@ class OldUnitsConversion
 
 end
 
-# assert(LengthUnit.new("cm", 5).convet("mm"), 50)
 
+# Possible Testcase => Needs Adjustment 
+# assert(LengthUnit.new("cm", 5).convert("mm"), 50)
+
+
+# Hardcoded Userinput
 enteredUnit = "cm"
 enteredValue = 5
 enteredTargetUnit = "mm"
 unit = nil
 
-if LengthConversion.units.include?(enteredUnit)
-  unit = LengthConversion.new(enteredUnit, enteredValue)
+if OldUnitsConversion.units.include?(enteredUnit)
+  unit = OldUnitsConversion.new(enteredUnit, enteredValue)
 end
 
 puts unit.convert(enteredTargetUnit)

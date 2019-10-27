@@ -40,15 +40,19 @@ class TemperatureConversion
   end
 end
 
-# assert(LengthUnit.new("cm", 5).convet("mm"), 50)
+# possible Testcase
+# assert(LengthUnit.new("C", 5).convet("F"), 41)
+#
+#
+# Hardcoded Userinput
 
-enteredUnit = "cm"
+enteredUnit = "C"
 enteredValue = 5
-enteredTargetUnit = "mm"
+enteredTargetUnit = "F"
 unit = nil
 
-if LengthConversion.units.include?(enteredUnit)
-  unit = LengthConversion.new(enteredUnit, enteredValue)
+if TemperatureConversion.units.include?(enteredUnit)
+  unit = TemperatureConversion.new(enteredUnit, enteredValue)
 end
 
 puts unit.convert(enteredTargetUnit)
