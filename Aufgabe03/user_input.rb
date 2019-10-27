@@ -25,8 +25,8 @@ class UserInput
 
   # method which calls the right unit converter from coversion class
   def call_converter
-    if LengthUnit.units.include?(enteredUnit)
-      unit = LengthUnit.new(enteredUnit, enteredValue)
+    if LengthConversion.units.include?(enteredUnit)
+      unit = LengthConversion.new(enteredUnit, enteredValue)
     end
   end
 

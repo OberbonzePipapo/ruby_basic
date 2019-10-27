@@ -1,11 +1,12 @@
-# Conversion of different units
+# Class which convert different length units into each other
 # Author:: Elina Eickstaedt
-class LengthUnit
+
+class LengthConversion
 
   @@units = %w(mm cm m km)
 
   def initialize(unit, value)
-
+    # intializes every value into a baseline unit to convert them easier later
     @value = 0
     case unit
     when "cm"
@@ -59,46 +60,15 @@ class LengthUnit
   end
 end
 
+# assert(LengthUnit.new("cm", 5).convet("mm"), 50)
 
-class TemperatureUnit
+enteredUnit = "cm"
+enteredValue = 5
+enteredTargetUnit = "mm"
+unit = nil
 
-  @@units = %w(mm cm m km)
-
-  def initialize(unit, value)
-
-    @value = 0
-    case unit
-    when "cm"
-      @value = value * 10
-    when "m"
-      @value = value * 1000
-    when "km"
-      @value = (value * 1000) * 1000
-    else
-      # mm
-      @value = value
-    end
-
-  end
-
-  def self.units
-    @@units
-  end
-
-  def convert(target_unit)
-
-    case target_unit
-    when "cm"
-      result = @value / 10
-    when "m"
-      result = @value / 1000
-    when "km"
-      result = @value / 1000 / 1000
-    else
-      # mm
-      result = @value
-    end
-
-    result
-  end
+if LengthConversion.units.include?(enteredUnit)
+  unit = LengthConversion.new(enteredUnit, enteredValue)
 end
+
+puts unit.convert(enteredTargetUnit)

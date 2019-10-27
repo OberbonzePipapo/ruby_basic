@@ -1,25 +1,21 @@
-
-
-
-# Conversion of different units
+# Class which converts temperature units into each other => Celsius, Kelvin, Fahrenheit, Smurdley
 # Author:: Elina Eickstaedt
-class LengthConversion
 
-  @@units = %w(mm cm m km)
+class TemperatureConversion
+
+  @@units = %w(C F K)
 
   def initialize(unit, value)
 
     @value = 0
     case unit
-    when "cm"
-      @value = value * 10
-    when "m"
-      @value = value * 1000
-    when "km"
-      @value = (value * 1000) * 1000
+    when "F"
+      @value = (value.to_f - 32) * (5/9)
+    when "K"
+      @value = value.to_f - 273.15
     else
-      # mm
-      @value = value
+      # C
+      @value = value.to_f
     end
 
   end
@@ -31,14 +27,12 @@ class LengthConversion
   def convert(target_unit)
 
     case target_unit
-    when "cm"
-      result = @value / 10
-    when "m"
-      result = @value / 1000
-    when "km"
-      result = @value / 1000 / 1000
+    when "F"
+      result = (@value * 9/5) + 32
+    when "K"
+      result = @value + 273,15
     else
-      # mm
+      # C
       result = @value
     end
 
@@ -58,5 +52,3 @@ if LengthConversion.units.include?(enteredUnit)
 end
 
 puts unit.convert(enteredTargetUnit)
-
-

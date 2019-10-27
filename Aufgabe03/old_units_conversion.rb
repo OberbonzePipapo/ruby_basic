@@ -1,25 +1,19 @@
-
-
-
-# Conversion of different units
+# Class which converts old units into each other => Dutzend (12), Mandel (15), Schock (60), Gross (144).
 # Author:: Elina Eickstaedt
-class LengthConversion
-
-  @@units = %w(mm cm m km)
+class OldUnitsConversion
+  @@units = %w(Dutzend Mandel Schock)
 
   def initialize(unit, value)
 
     @value = 0
     case unit
-    when "cm"
-      @value = value * 10
-    when "m"
-      @value = value * 1000
-    when "km"
-      @value = (value * 1000) * 1000
+    when "Mandel"
+      @value = (value.to_f - 32) * (5/9)
+    when "Schock"
+      @value = value.to_f - 273.15
     else
-      # mm
-      @value = value
+      # Dutzend
+      @value = value.to_f
     end
 
   end
@@ -31,19 +25,18 @@ class LengthConversion
   def convert(target_unit)
 
     case target_unit
-    when "cm"
-      result = @value / 10
-    when "m"
-      result = @value / 1000
-    when "km"
-      result = @value / 1000 / 1000
+    when "Mandel"
+      result = (@value * 9/5) + 32
+    when "Schock"
+      result = @value + 273,15
     else
-      # mm
+      # Dutzend
       result = @value
     end
 
     result
   end
+
 end
 
 # assert(LengthUnit.new("cm", 5).convet("mm"), 50)
@@ -58,5 +51,3 @@ if LengthConversion.units.include?(enteredUnit)
 end
 
 puts unit.convert(enteredTargetUnit)
-
-
