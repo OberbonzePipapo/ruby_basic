@@ -10,12 +10,13 @@ class TemperatureConversion
     @value = 0
     case unit
     when "F"
-      @value = (value.to_f - 32) * (5/9)
+      @value = (value.to_f - 32.0) * (5.0/9.0)
     when "K"
       @value = value.to_f - 273.15
-    else
-      # C
+    when "C"
       @value = value.to_f
+    else
+      puts("Please enter valid parameters")
     end
 
   end
@@ -28,9 +29,9 @@ class TemperatureConversion
 
     case target_unit
     when "F"
-      result = (@value * 9/5) + 32
+      result = (@value * 9.0/5.0) + 32.0
     when "K"
-      result = @value + 273,15
+      result = @value + 273.15
     else
       # C
       result = @value

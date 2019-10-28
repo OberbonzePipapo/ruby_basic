@@ -8,22 +8,23 @@ class MassConversion
     @value = 0
     case unit
     when "kg"
-      @value = value.to_f * 1000
+      @value = value.to_f * 1000.0
     when "ztr"
-      @value = value.to_f * 100000
+      @value = value.to_f * 100000.0
     when "t"
-      @value = value.to_f * 1e+6
+      @value = value.to_f * 1e+6.to_f
     when "oz"
       @value = value.to_f * 28.35
     when "lb"
       @value = value.to_f * 453.592
     when "tn"
-      @value = value.to_f * 907185
+      @value = value.to_f * 907185.0
     when "b"
       @value = value.to_f * 36.43
-    else
-      # g
+    when "g"
       @value = value.to_f
+    else
+      puts("Please enter valid parameters")
     end
 
   end

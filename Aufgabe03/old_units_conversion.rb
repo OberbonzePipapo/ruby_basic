@@ -11,10 +11,11 @@ class OldUnitsConversion
     when "Dutzend"
       @value = value.to_f * 1.25
     when "Schock"
-      @value = value.to_f * 5
-    else
-      # Mandel
+      @value = value.to_f * 5.0
+    when "Mandel"
       @value = value.to_f
+    else
+      puts("Please enter valid parameters")
     end
 
   end
@@ -27,12 +28,12 @@ class OldUnitsConversion
 
     case target_unit
     when "Dutzend"
-      result = @value / 1.25
+      result = @value.to_f / 1.25
     when "Schock"
-      result = @value / 5
+      result = @value.to_f / 5.0
     else
       # Mandel
-      result = @value
+      result = @value.to_f
     end
 
     result
