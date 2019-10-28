@@ -1,4 +1,4 @@
-# Class to convert mass units into to each other => g, kg, Zentner, Tonne, ounce, pound, ton
+# Class to convert mass units into to each other => g, kg, Zentner, Tonne, ounce, pound, short ton, blintz,
 #Author:: Elina Eickstaedt
 class MassConversion
   @@units = %w(g kg ztr t oz lb tn)
@@ -17,6 +17,10 @@ class MassConversion
       @value = value.to_f * 28.35
     when "lb"
       @value = value.to_f * 453.592
+    when "tn"
+      @value = value.to_f * 907185
+    when "b"
+      @value = value.to_f * 36.43
     else
       # g
       @value = value.to_f

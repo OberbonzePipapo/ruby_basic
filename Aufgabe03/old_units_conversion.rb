@@ -1,5 +1,6 @@
 # Class which converts old units into each other => Dutzend (12), Mandel (15), Schock (60), Gross (144).
 # Author:: Elina Eickstaedt
+#
 class OldUnitsConversion
   @@units = %w(Dutzend Mandel Schock)
 
@@ -7,12 +8,12 @@ class OldUnitsConversion
 
     @value = 0
     case unit
-    when "Mandel"
-      @value = (value.to_f - 32) * (5/9)
+    when "Dutzend"
+      @value = value.to_f * 1.25
     when "Schock"
-      @value = value.to_f - 273.15
+      @value = value.to_f * 5
     else
-      # Dutzend
+      # Mandel
       @value = value.to_f
     end
 
@@ -25,12 +26,12 @@ class OldUnitsConversion
   def convert(target_unit)
 
     case target_unit
-    when "Mandel"
-      result = (@value * 9/5) + 32
+    when "Dutzend"
+      result = @value / 1.25
     when "Schock"
-      result = @value + 273,15
+      result = @value / 5
     else
-      # Dutzend
+      # Mandel
       result = @value
     end
 

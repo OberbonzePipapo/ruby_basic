@@ -9,10 +9,11 @@ require_relative 'old_units_conversion.rb'
 def get_input
   puts("Please enter the value and the unit you want to convert from, in the format 2 cm to km.")
   input = gets
-  if input.is_a?(NilClass) || (input.strip).upcase.eql?("E")
+  if input.is_a?(NilClass)
     puts("Please restart and enter something valid")
   else
-    user_input = /^(?<value>[0-9.]+) ?(?<enteredUnit>[[:alpha:]]+)??(?: to )?(?<targetunit>[[:alpha:]]+)?$/.match(input.strip)
+    # structure user input into different match pattern to split them into different variables
+    user_input = /^(?<value>[0-9.]+) ?(?<enteredUnit>[[:alpha:]]+)(?: to )(?<targetunit>[[:alpha:]]+)?$/.match(input.strip)
     entered_unit = user_input["enteredUnit"]
     entered_value = user_input["value"]
     target_unit = user_input["targetunit"]
@@ -29,10 +30,14 @@ def call_converter(entered_value, entered_unit, target_unit)
     unit = MassConversion.new(entered_unit, entered_value)
     puts unit.convert(target_unit)
   elsif TemperatureConversion.units.include?(entered_unit) && TemperatureConversion.units.include?(target_unit)
-    unit = MassConversion.new(entered_unit, entered_value)
+    unit = TemperatureConversion.new(entered_unit, entered_value)
     puts unit.convert(target_unit)
+  elsif OldUnitsConversion.units.include?(entered_unit) && OldUnitsConversion.units.include?(target_unit)
+          unit = OldUnitsConversion.new(entered_unit, entered_value)
+          puts unit.convert(target_unit)
+  else
+    puts("You haven't entered a valid unit, please restart and enter something valid")
   end
 end
-
 
 get_input

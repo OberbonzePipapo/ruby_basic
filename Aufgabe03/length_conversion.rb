@@ -1,9 +1,9 @@
-# Class which convert different length units into each other
+# Class which convert different length units into each other =>mp, Kp, Fp
 # Author:: Elina Eickstaedt
 
 class LengthConversion
 
-  @@units = %w(mm cm m km)
+  @@units = %w(mm cm m km potrzbie mp Kp Fp)
 
   def initialize(unit, value)
     # intializes every value into a baseline unit to convert them easier later
@@ -21,8 +21,15 @@ class LengthConversion
       @value = value.to_f * 304.8
     when "yd"
       @value = value.to_f * 1609344
+    # Used from wolfram alpha
     when "potrzbie"
       @value = value.to_f * 2.263348517438173216473
+    when "mp"
+      @value = value.to_f * 0.002263
+    when "Kp"
+      @value = value.to_f * 2263
+    when "Fp"
+      @value = value.to_f * 2263000
     else
       # mm
       @value = value.to_f
@@ -51,11 +58,16 @@ class LengthConversion
       @value = value / 1609344
     when "potrzbie"
       @value = value / 2.263348517438173216473
+    when "mp"
+      @value = value.to_f / 0.002263
+    when "Kp"
+      @value = value.to_f / 2263
+    when "Fp"
+      @value = value.to_f / 2263000
     else
       # mm
       result = @value
     end
-
     result
   end
 end

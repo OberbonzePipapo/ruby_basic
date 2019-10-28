@@ -41,4 +41,4 @@ class TemperatureConversion
 end
 
 # possible Testcase
-# assert(LengthUnit.new("C", 5).convet("F"), 41)
+# assert(TemperatureUnit.new("C", 5).convert("F"), 41)
