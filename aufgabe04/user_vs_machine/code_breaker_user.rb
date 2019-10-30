@@ -10,9 +10,14 @@ class CodeBreakerUser
     while i <= 4
       puts("Please enter the #{i}. number of your code")
       number = gets.chomp
-      if number == /^([1-6.]+)/
-        @input << number.to_i
-        i += 1
+      number.to_i
+      if number.is_a?(Integer)
+        if number < 7
+          @input << number
+          i += 1
+        else
+          raise ArgumentError, "Please enter a number between 1-6"
+        end
       else
         raise ArgumentError, "Please enter something valid"
       end

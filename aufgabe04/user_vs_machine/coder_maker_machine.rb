@@ -2,7 +2,7 @@
 #Author:: Elina Eickstaedt
 class CoderMakerMachine
   def initialize
-    @code = []
+    @code = [4, 3, 2, 1]
     @wh = 0
     @bh = 0
   end
@@ -18,27 +18,40 @@ class CoderMakerMachine
 
   def white_hits(user_input)
     work_arr = @code
+    i = 0
     user_input.each { |value|
-      while i < work_arr.length
-        if value == work_arr[i]
+      while i <= work_arr.length
+        found = false
+        if value == work_arr[i] && !found
           @wh += 1
           work_arr.delete(i)
-          break
-        else
-          i += 1
+          puts("Almost a hit #{i}")
+          found = true
         end
+        i+= 1
       end
     }
+    puts(work_arr)
+    @wh
 
   end
 
+  # method which checks for "Black Hits", which means the numbers the user entered are at the same position in the codemakers array
   def black_hits(user_input)
+    i = 0
+    # iterate over each value in the input_array and check at the same position in the maker arr for a match
     user_input.each { |value|
-
+      if value == @code[i]
+        @bh += 1
+      end
+      i += 1
     }
-    end
+    puts("Blackhits #{@bh}")
+  end
 end
 
 
 code = CoderMakerMachine.new
-puts(code.new_code)
+#puts(code.new_code)
+#code.black_hits([1, 2, 3, 4])
+puts(code.white_hits([1, 2, 3, 4]))
