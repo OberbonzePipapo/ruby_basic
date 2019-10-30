@@ -13,6 +13,7 @@ class TestTemperatureConversion < Test::Unit::TestCase
   end
   def test_invalid_input
     # test if false input is handled properly
-    assert_equal("Please enter valid parameters", TemperatureConversion.new("C", "M").convert("l"))
+    assert_raise(ArgumentError, "Please enter valid parameters") {TemperatureConversion.new("C", "M").convert("l")}
   end
 end
+

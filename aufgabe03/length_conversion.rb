@@ -20,7 +20,7 @@ class LengthConversion
     when "ft"
       @value = value.to_f * 304.8
     when "yd"
-      @value = value.to_f * 1609344.0
+      @value = value.to_f * 914.4
     # Used from wolfram alpha
     when "potrzbie"
       @value = value.to_f * 2.263348517438173216473
@@ -30,9 +30,10 @@ class LengthConversion
       @value = value.to_f * 2263.0
     when "Fp"
       @value = value.to_f * 2263000.0
-    else
-      # mm
+    when "mm"
       @value = value.to_f
+    else
+      raise ArgumentError, "Please enter valid parameters"
     end
 
   end
@@ -45,29 +46,28 @@ class LengthConversion
 
     case target_unit
     when "cm"
-      result = @value / 10.0
+      @value / 10.0
     when "m"
-      result = @value / 1000.0
+      @value / 1000.0
     when "km"
-      result = @value / 1000000.0
+      @value / 1000000.0
     when "in"
-      @value = value / 25.4
+       @value / 25.4
     when "ft"
-      @value = value / 304.8
+      @value / 304.8
     when "yd"
-      @value = value / 1609344.0
+      @value / 914.4
     when "potrzbie"
-      @value = value / 2.263348517438173216473
+      @value / 2.263348517438173216473
     when "mp"
-      @value = value.to_f / 0.002263
+      @value / 0.002263
     when "Kp"
-      @value = value.to_f / 2263.0
+      @value / 2263.0
     when "mm"
-      @value = value.to_f
+      @value
     else
-      puts("Please enter valid parameters")
+      raise ArgumentError, "Please enter valid target unit"
     end
-    result
   end
 end
 

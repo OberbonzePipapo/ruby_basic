@@ -15,7 +15,7 @@ class OldUnitsConversion
     when "Mandel"
       @value = value.to_f
     else
-      puts("Please enter valid parameters")
+      raise ArgumentError, "Please enter valid parameters"
     end
 
   end
@@ -28,15 +28,14 @@ class OldUnitsConversion
 
     case target_unit
     when "Dutzend"
-      result = @value.to_f / 1.25
+      @value / 1.25
     when "Schock"
-      result = @value.to_f / 5.0
+      @value / 5.0
+    when "Mandel"
+      @value
     else
-      # Mandel
-      result = @value.to_f
+      raise ArgumentError, "Please enter valid target unit"
     end
-
-    result
   end
 
 end

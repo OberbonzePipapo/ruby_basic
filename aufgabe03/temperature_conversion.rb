@@ -16,7 +16,7 @@ class TemperatureConversion
     when "C"
       @value = value.to_f
     else
-      puts("Please enter valid parameters")
+      raise ArgumentError, "Please enter valid parameters"
     end
 
   end
@@ -29,15 +29,14 @@ class TemperatureConversion
 
     case target_unit
     when "F"
-      result = (@value * 9.0/5.0) + 32.0
+      (@value * 9.0/5.0) + 32.0
     when "K"
-      result = @value + 273.15
+      @value + 273.15
+    when "C"
+      @value
     else
-      # C
-      result = @value
+      raise ArgumentError, "Please enter valid target unit"
     end
-
-    result
   end
 end
 

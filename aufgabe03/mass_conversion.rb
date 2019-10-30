@@ -24,7 +24,7 @@ class MassConversion
     when "g"
       @value = value.to_f
     else
-      puts("Please enter valid parameters")
+      raise ArgumentError, "Please enter valid parameters"
     end
 
   end
@@ -37,21 +37,20 @@ class MassConversion
 
     case target_unit
     when "kg"
-      @value = value / 1000
+      @value/ 1000
     when "ztr"
-      @value = value / 100000
+      @value / 100000
     when "t"
-      @value = value / 1e+6
+      @value / 1e+6
     when "oz"
-      @value = value / 28.35
+      @value / 28.35
     when "lb"
-      @value = value / 453.592
+      @value / 453.592
+    when "g"
+      @value
     else
-      # g
-      @value = value
+      raise ArgumentError, "Please enter valid target unit"
     end
-
-    result
   end
 end
 

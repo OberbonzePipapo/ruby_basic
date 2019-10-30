@@ -13,6 +13,6 @@ class TestMassConversion < Test::Unit::TestCase
   end
   def test_invalid_input
     # test if false input is handled properly
-    assert_equal("Please enter valid parameters", MassConversion.new("C", "M").convert("l"))
+    assert_raise(ArgumentError, "Please enter valid parameters") {MassConversion.new("C", "M").convert("l")}
   end
 end
