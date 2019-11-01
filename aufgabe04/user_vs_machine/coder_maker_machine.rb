@@ -17,23 +17,16 @@ class CoderMakerMachine
   end
 
   def white_hits(user_input)
-    work_arr = @code
     i = 0
     user_input.each { |value|
-      while i <= work_arr.length
-        found = false
-        if value == work_arr[i] && !found
+      while i < @code.length
+        if value <=> @code[i]
           @wh += 1
-          work_arr.delete(i)
-          puts("Almost a hit #{i}")
-          found = true
         end
-        i+= 1
+        i += 1
       end
     }
-    puts(work_arr)
-    @wh
-
+    puts("You had #{@wh} white hits in this series, press enter to continue")
   end
 
   # method which checks for "Black Hits", which means the numbers the user entered are at the same position in the codemakers array
@@ -46,7 +39,7 @@ class CoderMakerMachine
       end
       i += 1
     }
-    puts("Blackhits #{@bh}")
+    puts("You had #{i} white hits in this series, press enter to continue")
   end
 end
 
