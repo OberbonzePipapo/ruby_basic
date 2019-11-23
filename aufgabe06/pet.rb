@@ -11,10 +11,25 @@ class Pet < Being
     # Date.parse raises an error if a non valid date was entered
     @birthday = Date.parse(birthday)
     @lives = 1
+    @food = 0
+    @comfort = 0
   end
 
   def to_s
     "#{super}, Birthday: #{@birthday}, Lives: #{@lives}"
+  end
+
+  def fed_by(person)
+    check_if_person(person)
+
+    (@food += 1).clone
+
+  end
+
+  def petted_by(person)
+    check_if_person(person)
+
+    (@comfort += 1).clone
   end
 
   def ==(other)
@@ -22,9 +37,15 @@ class Pet < Being
     return false unless other.is_a?(Pet)
     return false unless @lives == other.lives
     return false unless @birthday == other.birthday
+    return false unless @food == other.food
+    return false  unless @comfort == other.comfort
     super
   end
   alias :eql? :==
+
+  def hash
+    super + [@birthday, @lives, @food, @comfort].hash
+  end
 
   protected
 

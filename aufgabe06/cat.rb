@@ -1,9 +1,12 @@
-# Class which describes all the attributes and possible actions for Pets of the type Cat, enheritates the Superclass Pet
+# Class which describes all the attributes and possible actions for Pets of the type Cat, inheritates the Superclass Pet
 # Author:: Elina Eickstaedt
 
 require_relative 'pet'
 
+
 class Cat < Pet
+
+  attr_reader :butlers
 
   def initialize(name, birthday)
     super(name, birthday)
@@ -38,6 +41,18 @@ class Cat < Pet
 
     butler.pet(self)
     self
+  end
+
+  def ==(other)
+    return true if self.equal?(other)
+    return false unless other.is_a?(Cat)
+    return false unless @butlers == other.butlers
+    super
+  end
+  alias :eql? :==
+
+  def hash
+    super + [@butlers].hash
   end
 
   protected

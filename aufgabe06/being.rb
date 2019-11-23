@@ -18,6 +18,10 @@ class Being
   end
   alias :eql? :==
 
+  def hash
+    [@name].hash
+  end
+
   protected
 
   attr_reader :name
