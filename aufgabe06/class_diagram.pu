@@ -1,0 +1,37 @@
+@startuml Aufgabe A06
+
+    class Being {
+      String name
+    }
+
+    class Pet {
+      Date birthday
+      Integer lives = 1
+      Boolean die()
+      Boolean kill(Pet victim)
+    }
+
+    class Person {
+      Cat[] masters
+      Dog[] pets
+      feed(Cat | Dog)
+      pet(Cat | Dog)
+    }
+
+    class Cat {
+      Integer lives = 9
+      Person[] servants
+    }
+
+    class Dog {
+      Person owner
+    }
+
+    Being <|-down- Pet
+    Being <|-down- Person
+    Pet <|-down- Cat
+    Pet <|-down- Dog
+    Cat "*" *-right- "*" Person : keeps >
+    Person "1" *-right- "*" Dog : keeps >
+
+@enduml
